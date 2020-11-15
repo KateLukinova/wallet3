@@ -10,6 +10,12 @@
   src: url("../fonts/Golos-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Golos-Medium.woff2") format("woff2"), url("../fonts/Golos-Medium.woff") format("woff"), url("../fonts/Golos-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: '../fonts/Golos-Black';
+  src: url("../fonts/Golos-Black.eot");
+  src: url("../fonts/Golos-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/Golos-Black.woff2") format("woff2"), url("../fonts/Golos-Black.woff") format("woff"), url("../fonts/Golos-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
 /*reset css*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -519,7 +525,7 @@ footer {
     -ms-transform: translate(-50%, -100%);
     transform: translate(-50%, -100%);
     z-index: 0; }
-  footer .content {
+  footer .footer-content {
     width: 90%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -527,15 +533,25 @@ footer {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    max-width: 1120px;
+    max-width: 1400px;
     margin: auto;
-    padding: 10px 0; }
-    footer .content .link-box {
-      margin-right: 40px; }
-    footer .content .link-box a {
-      margin-right: 8px; }
-      footer .content .link-box a:nth-last-child(1) {
-        margin-right: 0; }
+    padding: 45px 0; }
+    footer .footer-content .column-left {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column; }
+    footer .footer-content .column-right {
+      display: flex; }
+  footer .corp {
+    font-family: 'Golos-Regular', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 20px 0;
+    margin-top: 10px; }
   footer .soc-box {
     min-width: 160px;
     display: -webkit-box;
@@ -551,51 +567,12 @@ footer {
     transition: all 0.5s ease; }
     footer .soc-box a {
       margin-right: 22px; }
+      footer .soc-box a:nth-last-child(1) {
+        margin-right: 0; }
       footer .soc-box a svg {
         width: 24px; }
       footer .soc-box a:hover {
         opacity: 0.6; }
-  footer .corp {
-    font-family: 'Gilroy-Medium', sans-serif;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: right;
-    letter-spacing: 0.15px;
-    color: #000000; }
-
-.footer-contacts {
-  font-family: 'Gilroy', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: 0.15px;
-  color: rgba(0, 0, 0, 0.87);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start; }
-  .footer-contacts.flex-end {
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end; }
-  .footer-contacts a {
-    font-family: 'Gilroy-Medium', sans-serif;
-    font-size: 20px;
-    line-height: 1.5;
-    letter-spacing: 0.15px;
-    color: rgba(0, 0, 0, 0.87); }
-  .footer-contacts span {
-    margin-bottom: 8px; }
-  .footer-contacts h5 {
-    font-family: 'Gilroy-Bold', sans-serif;
-    font-size: 20px; }
 
 .footer-nav {
   display: -webkit-box;
@@ -604,15 +581,25 @@ footer {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  margin-right: 90px; }
+  .footer-nav:nth-last-child(1) {
+    margin-right: 0; }
   .footer-nav a {
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'Golos-Regular', sans-serif;
+    font-style: normal;
+    font-weight: normal;
     font-size: 20px;
-    line-height: 1.2;
-    letter-spacing: 0.15px;
-    color: rgba(0, 0, 0, 0.87);
-    margin-bottom: 16px;
-    white-space: nowrap; }
+    line-height: 1.9;
+    color: #FFFFFF; }
+    .footer-nav a.nav-caption {
+      font-family: 'Golos-Black', sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 16px; }
 
 ul {
   list-style: none; }
@@ -1133,7 +1120,10 @@ ul li {
 
   .bottom-block:after {
     right: -100px;
-    bottom: -100px; } }
+    bottom: -100px; }
+
+  .footer-nav {
+    margin-right: 60px; } }
 @media (max-width: 990px) {
   .main-page p {
     text-align: center;
@@ -1265,22 +1255,22 @@ ul li {
   ul li {
     font-size: 16px; }
 
-  .footer-nav a {
-    white-space: normal;
-    max-width: 250px; }
+  footer .footer-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start; }
+    footer .footer-content .column-left {
+      align-items: center;
+      margin-bottom: 20px; }
+    footer .footer-content .column-right {
+      flex-direction: column;
+      align-items: center; }
 
-  .footer-nav, .footer-contacts {
-    width: 40%; }
-
-  .big-text-block h4 {
-    font-size: 24px; }
-  .big-text-block .big-text {
-    font-size: 36px;
-    margin-left: 60px; }
-    .big-text-block .big-text span img {
-      width: 60px; }
-  .big-text-block p {
-    font-size: 16px; }
+  .footer-nav {
+    align-items: center;
+    margin-right: 0;
+    margin-bottom: 20px; }
 
   .police-page {
     margin-top: 60px;

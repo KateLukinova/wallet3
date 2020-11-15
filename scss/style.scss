@@ -22,6 +22,18 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: '../fonts/Golos-Black';
+  src: url('../fonts/Golos-Black.eot');
+  src:
+          url('../fonts/Golos-Black.eot?#iefix') format('embedded-opentype'),
+          url('../fonts/Golos-Black.woff2') format('woff2'),
+          url('../fonts/Golos-Black.woff') format('woff'),
+          url('../fonts/Golos-Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*reset css*/
 
 html, body, div, span, applet, object, iframe,
@@ -605,7 +617,7 @@ footer {
     transform: translate(-50%, -100%);
     z-index: 0;
   }
-  .content {
+  .footer-content {
     width: 90%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -613,20 +625,31 @@ footer {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    max-width: 1120px;
+    max-width: 1400px;
     margin: auto;
-    padding: 10px 0;
+    padding: 45px 0;
 
-    .link-box {
-      margin-right: 40px;
+    .column-left {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
     }
 
-    .link-box a {
-      margin-right: 8px;
-      &:nth-last-child(1) {
-        margin-right: 0;
-      }
+    .column-right {
+      display: flex;
     }
+  }
+
+  .corp {
+    font-family: 'Golos-Regular', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 20px 0;
+    margin-top: 10px;
   }
 
   .soc-box {
@@ -644,6 +667,10 @@ footer {
     transition: all 0.5s ease;
     a {
       margin-right: 22px;
+
+      &:nth-last-child(1) {
+        margin-right: 0;
+      }
       svg {
         width: 24px;
       }
@@ -652,55 +679,8 @@ footer {
       }
     }
   }
-
-  .corp {
-    font-family: 'Gilroy-Medium', sans-serif;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: right;
-    letter-spacing: 0.15px;
-    color: #000000;
-  }
 }
 
-.footer-contacts {
-  font-family: 'Gilroy', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: 0.15px;
-  color: rgba(0, 0, 0, 0.87);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  &.flex-end {
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-  }
-  a {
-    font-family: 'Gilroy-Medium', sans-serif;
-    font-size: 20px;
-    line-height: 1.5;
-    letter-spacing: 0.15px;
-    color: rgba(0, 0, 0, 0.87);
-  }
-  span {
-    margin-bottom: 8px;
-  }
-  h5 {
-    font-family: 'Gilroy-Bold', sans-serif;
-    font-size: 20px;
-  }
-}
 
 .footer-nav {
   display: -webkit-box;
@@ -710,14 +690,26 @@ footer {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  margin-right: 90px;
+  &:nth-last-child(1) {
+    margin-right: 0;
+  }
   a {
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'Golos-Regular', sans-serif;
+    font-style: normal;
+    font-weight: normal;
     font-size: 20px;
-    line-height: 1.2;
-    letter-spacing: 0.15px;
-    color: rgba(0, 0, 0, 0.87);
-    margin-bottom: 16px;
-    white-space: nowrap;
+    line-height: 1.9;
+    color: #FFFFFF;
+    &.nav-caption {
+      font-family: 'Golos-Black', sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 16px;
+    }
   }
 }
 
@@ -1358,6 +1350,11 @@ ul li {
     bottom: -100px;
   }
 
+
+  .footer-nav {
+    margin-right: 60px;
+  }
+
 }
 
 @media (max-width: 990px) {
@@ -1514,33 +1511,30 @@ ul li {
     font-size: 16px;
   }
 
-  .footer-nav a {
-    white-space: normal;
-    max-width: 250px;
-  }
-  .footer-nav, .footer-contacts {
-    width: 40%;
-  }
+  footer .footer-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
 
-  .big-text-block {
-    h4 {
-      font-size: 24px;
+    .column-left {
+      align-items: center;
+      margin-bottom: 20px;
     }
 
-    .big-text {
-      font-size: 36px;
-      margin-left: 60px;
-      span {
-        img {
-          width: 60px;
-        }
-      }
-    }
-
-    p {
-      font-size: 16px;
+    .column-right {
+      flex-direction: column;
+      align-items: center;
     }
   }
+
+
+  .footer-nav {
+    align-items: center;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
 
   .police-page {
     margin-top: 60px;
